@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha ./src/_test/user/user1/userGetById1.spec.js",
+    "test": "mocha ./src/_test/user/user1/userCreate1.spec.js",
     "start": "nodemon src/index.js"
   },
   "keywords": [],

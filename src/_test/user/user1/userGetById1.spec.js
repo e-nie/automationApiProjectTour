@@ -1,6 +1,7 @@
 const { expect } = require("chai");
 const { userGetByIdQ } = require('./queries')
 const { user} = require("./data");
+const User = require('../../../models/User')
 const gqlRequest = require('../gqlRequest')
 
 let respData = null;

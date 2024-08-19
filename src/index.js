@@ -4,6 +4,12 @@ const typeDefs = require('./graphql/typeDefs')
 const resolvers = require('./graphql/resolvers')
 
 const MONGODB = 'mongodb+srv://userdb:Aa123123@cluster0.rdlmtuv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+//const MONGODB = 'mongodb://localhost:27017'
+const options = {
+  useNewUrlParser: true,
+  autoIndex: false,
+  useUnifiedTopology: true,
+};
 const server =new ApolloServer( {
   typeDefs,
   resolvers
@@ -11,7 +17,7 @@ const server =new ApolloServer( {
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGODB);
+    await mongoose.connect(MONGODB, options);
     console.log('MongoDB connected successfully');
   } catch (err) {
     console.error(err.message);
