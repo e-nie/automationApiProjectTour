@@ -2,13 +2,16 @@ const { ApolloServer } = require('apollo-server');
 const mongoose= require('mongoose')
 const typeDefs = require('./graphql/typeDefs')
 const resolvers = require('./graphql/resolvers')
+require('dotenv').config();
 
-const MONGODB = 'mongodb+srv://userdb:Aa123123@cluster0.rdlmtuv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-//const MONGODB = 'mongodb://localhost:27017'
+const dbUrl = process.env.MONGODB
+//const MONGODB = 'mongodb+srv://userdb:Aa123123@cluster0.rdlmtuv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+//const MONGODB = 'mongodb://localhost:27017/theBookOfComments'
 const options = {
-  useNewUrlParser: true,
+  connectTimeoutMS: 30000,  // Optional: Increase connection timeout
+  socketTimeoutMS: 45000,    // Optional: Increase socket timeout
+  bufferCommands: false,
   autoIndex: false,
-  useUnifiedTopology: true,
 };
 const server =new ApolloServer( {
   typeDefs,
@@ -17,7 +20,7 @@ const server =new ApolloServer( {
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGODB, options);
+    await mongoose.connect(dbUrl, options);
     console.log('MongoDB connected successfully');
   } catch (err) {
     console.error(err.message);

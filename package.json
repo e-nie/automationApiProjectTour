@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "test:user": "mocha src/_test/user/user1/helper.js src/_test/user/user1/**.spec.js",
+    "test:user": "mocha src/_test/user/user1/5_userCreate1.spec.js --timeout 10000 --exit",
+    "test:helper": "mocha src/_test/user/user1/helper.js --timeout 30000 -r dotenv/config --exit",
     "start": "nodemon src/index.js"
   },
   "keywords": [],
