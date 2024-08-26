@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const { expect } = require("chai");
-const { userCreateQ } = require('./queries');
-const { user } = require('./data');
+const { userCreateQ } = require('./user1/queries');
+const { user } = require('./user1/data');
 const User = require('../../../modules/users/Model');
-const gqlRequest = require('../gqlRequest');
+const gqlRequest = require('../../gqlRequest');
 require('dotenv').config();
 
 const dbUrl = process.env.MONGODB
