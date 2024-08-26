@@ -5,15 +5,13 @@ const resolvers = require('./graphql/resolvers')
 require('dotenv').config();
 
 const dbUrl = process.env.MONGODB
-//const MONGODB = 'mongodb+srv://userdb:Aa123123@cluster0.rdlmtuv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-//const MONGODB = 'mongodb://localhost:27017/theBookOfComments'
 const options = {
   connectTimeoutMS: 30000,  // Optional: Increase connection timeout
   socketTimeoutMS: 45000,    // Optional: Increase socket timeout
   bufferCommands: false,
   autoIndex: false,
 };
-const server =new ApolloServer( {
+const server = new ApolloServer( {
   typeDefs,
   resolvers
 })

@@ -1,0 +1,40 @@
+type User {
+_id: ID
+firstName: String
+lastName: String
+comments: [Comment]
+}
+
+type Comment {
+_id: ID
+user: User
+createdAt: String
+rating: Int
+title: String
+description: String
+}
+
+input UserFields {
+userId: ID
+firstName: String
+lastName: String
+}
+
+input CommentFields {
+commentId: ID
+user: UserFields
+rating: Int
+title: String
+description: String
+}
+
+type Query {
+userGetAll(amount: Int): [User]
+userGetById(userId: ID!): User
+}
+
+type Mutation {
+userCreate(userInput: UserFields): User
+userUpdateById(userInput: UserFields): User
+userDeleteById(userId: ID): Boolean
+}
