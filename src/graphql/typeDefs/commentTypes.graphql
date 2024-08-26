@@ -1,10 +1,3 @@
-type User {
-_id: ID
-firstName: String
-lastName: String
-comments: [Comment]
-}
-
 type Comment {
 _id: ID
 user: User
@@ -30,11 +23,11 @@ description: String
 
 type Query {
 commentGetAll(commentId: Int): [Comment]
-commentGetById(commentId: ID!): Comment!
+commentGetById(commentId: ID!): Comment
 }
 
 type Mutation {
 commentCreate(commentInput: CommentFields): Comment!
 commentUpdateById(commentInput: CommentFields): Comment!
-commentDeleteById(commentId: ID): Boolean
+commentDeleteById(commentId: ID!): Boolean
 }

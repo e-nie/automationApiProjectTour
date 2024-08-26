@@ -5,15 +5,6 @@ lastName: String
 comments: [Comment]
 }
 
-type Comment {
-_id: ID
-user: User
-createdAt: String
-rating: Int
-title: String
-description: String
-}
-
 input UserFields {
 userId: ID
 firstName: String
@@ -36,5 +27,5 @@ userGetById(userId: ID!): User
 type Mutation {
 userCreate(userInput: UserFields): User
 userUpdateById(userInput: UserFields): User
-userDeleteById(userId: ID): Boolean
+userDeleteById(userId: ID!): Boolean
 }
