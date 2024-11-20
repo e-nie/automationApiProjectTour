@@ -4,7 +4,7 @@ import {user, getUser} from "../../data/user";
 
 const request = supertest('localhost:8001/api/v1')
 
-
+//create user without helper, without data
 describe('USER SIGN UP', () => {
     describe('POSITIVE TEST CASES', () => {
         it.skip('Create a new user', async () => {
@@ -21,16 +21,18 @@ describe('USER SIGN UP', () => {
             console.log('res: ', res.body);
         })
 
+        //create user with hard coded data from user.ts
         it('Create user again', async () => {
             const res = await request.post('/users/signup')
                 .send(user).expect(201)
             expect(res.body.data.user.name).toBe('GROWN')
-            expect(res.body.data.user.email).toBe('kynahuli7@mailinator.com')//change email each time
+            expect(res.body.data.user.email).toBe('kynahuli7@mailinator.com')//we need to change email each time
             expect(res.body.status).toBe('success')
             console.log('res: ', res.body);
         })
 
-        it('Create user with faker', function (done) {
+        //create user with faker ie with random dynamic data using helper function getUser
+        it('Create user with faker and helper', function (done) {
             let userImport = getUser()
             request.post('/users/signup')
                 .send(userImport).expect(201)
@@ -51,7 +53,7 @@ describe('USER SIGN UP', () => {
         it('should not create a new user with existing email', async () => {
          const res =    await request.post('/users/signup').send({
              "name": "GROWN",
-             "email": "kynahuli6@mailinator.com",
+             "email": "kynahuli6@mailinator.com", // 100% existing email
              "password": "123456789",
              "passwordConfirm": "123456789"
          }).expect(500)

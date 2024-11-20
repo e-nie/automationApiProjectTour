@@ -6,6 +6,7 @@ const request = supertest('localhost:8001/api/v1')
 //     await request.post('/users/signup').send(user)
 // }
 
+
 //Mischa says it is better to use promise than async await
 export function signUp(user: string | object | undefined): Promise<any> {
     return  new Promise((resolve, reject) => {
@@ -23,6 +24,12 @@ export function signUp(user: string | object | undefined): Promise<any> {
 //     await request.post('/users/login').send(user)
 // }
 
+//to work with done()
+export  function logIn1(user: string | object | undefined){
+    return request.post('/users/login').send(user)
+}
+
+
 export function logIn(user: string | object | undefined): Promise<any> {
     return new Promise((resolve, reject) => {
         request
@@ -34,3 +41,5 @@ export function logIn(user: string | object | undefined): Promise<any> {
             })
     })
 }
+
+

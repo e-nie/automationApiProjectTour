@@ -7,7 +7,7 @@ export const user = {
     "password": password,
     "passwordConfirm": password
 }
-
+//example of creating a random user from faker documentation - only required fields
 export function getUser() {
     let password = faker.internet.password();// to avoid the error of password not matching
     return {
@@ -18,7 +18,7 @@ export function getUser() {
     }
 }
 
-//example of creating a random user from faker documentation
+//example of creating a random user from faker documentation - all fields
 export function createRandomUser() {
     return {
         userId: faker.string.uuid(),
