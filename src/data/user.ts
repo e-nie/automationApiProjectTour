@@ -1,24 +1,26 @@
 import {faker} from '@faker-js/faker';
+import {User} from "./interface";
 
 let password = faker.internet.password();// to avoid the error of password not matching
-export const user = {
+export const user:User = {
     "name": faker.internet.username(),
     "email": faker.internet.email(),
     "password": password,
     "passwordConfirm": password
 }
-
-export function getUser() {
+//example of creating a random user from faker documentation - only required fields
+export function getUser():User {
     let password = faker.internet.password();// to avoid the error of password not matching
     return {
         "name": faker.internet.username(),
         "email": faker.internet.email(),
         "password": password,
-        "passwordConfirm": password
+        "passwordConfirm": password,
+
     }
 }
 
-//example of creating a random user from faker documentation
+//example of creating a random user from faker documentation - all fields
 export function createRandomUser() {
     return {
         userId: faker.string.uuid(),
