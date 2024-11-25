@@ -9,13 +9,14 @@ export const user:User = {
     "passwordConfirm": password
 }
 //example of creating a random user from faker documentation - only required fields
-export function getUser():User {
+export function getUser(role:string):User {
     let password = faker.internet.password();// to avoid the error of password not matching
     return {
         "name": faker.internet.username(),
         "email": faker.internet.email(),
         "password": password,
         "passwordConfirm": password,
+        "role": role
 
     }
 }

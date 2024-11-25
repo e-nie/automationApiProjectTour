@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "signUp": "npx jest signUp.spec.ts",
-    "logIn": "npx jest logIn.spec.ts"
+    "logIn": "npx jest logIn.spec.ts",
+    "delete": "npx jest delete.spec.ts",
+    "createTour": "npx jest createTour.spec.ts",
+    "mongo": "npx jest mongo.spec.ts"
   },
   "keywords": [],
   "author": "",

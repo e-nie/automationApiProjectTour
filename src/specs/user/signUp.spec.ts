@@ -1,7 +1,5 @@
 import * as supertest from "supertest";
 import {user, getUser} from "../../data/user";
-
-
 const request = supertest('localhost:8001/api/v1')
 
 //create user without helper, without data
