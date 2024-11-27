@@ -1,7 +1,6 @@
 import * as supertest from "supertest";
 import {getUser} from "../../data/user";
 import {signUp} from "../../data/helpers";
-import {faker} from '@faker-js/faker';
 import {tour} from "../../data/tour";
 
 

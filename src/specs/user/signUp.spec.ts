@@ -31,7 +31,7 @@ describe('USER SIGN UP', () => {
 
         //create user with faker ie with random dynamic data using helper function getUser
         it('Create user with faker and helper', function (done) {
-            let userImport = getUser()
+            let userImport = getUser('admin')
             request.post('/users/signup')
                 .send(userImport).expect(201)
                 .end(function (err, res) {
